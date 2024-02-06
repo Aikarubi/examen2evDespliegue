@@ -23,27 +23,27 @@ class Enana
 
     public function heridaLeve() {
         // Se le quitan 10 puntos de vida a la Enana
-      /*  $this->puntosVida -= 10;
+        $this->puntosVida -= 10;
     
         // Se verifica si la enana sigue viva después de recibir la herida
         if ($this->puntosVida <= 0) {
             $this->situacion = "muerta";
-        }*/
+        }
     }
     
 
     public function heridaGrave() {
         // Se le quita toda la vida que posea hasta tener 0 puntos de vida
-      /*  $this->puntosVida = 0;
+        $this->puntosVida = 0;
     
         // Se cambia la situación a limbo
-        $this->situacion = "limbo";*/
+        $this->situacion = "limbo";
     }
     
 
     public function pocima() {
         // Si la enana está en limbo, la pocima no le afecta.
-       /* if ($this->situacion !== "limbo") {
+        if ($this->situacion !== "limbo") {
             // Recupera 10 puntos de vida
             $this->puntosVida += 10;
     
@@ -51,17 +51,17 @@ class Enana
             if ($this->situacion === "muerta" && $this->puntosVida > 0) {
                 $this->situacion = "viva";
             }
-        }*/
+        }
     }
     
 
     public function pocimaExtra() {
         // Solo afecta a enanas en el limbo
-       /* if ($this->situacion === "limbo") {
+        if ($this->situacion === "limbo") {
             // Devuelve a la enana a la vida y otorga 50 puntos de vida
             $this->situacion = "viva";
             $this->puntosVida += 50;
-        }*/
+        }
     }
     
 
