@@ -8,10 +8,10 @@ class Enana
 
     public function __construct($a1, $a2)
     {
+        // El constructor tiene tan solo 2 parámetros. No añadas más.
+        // Deberás de completar situación dependiendo de puntosVida.
         $this->nombre = $a1;
         $this->puntosVida = $a2;
-
-        // Establecer la situación según los puntos de vida
         if ($a2 > 0) {
             $this->situacion = "viva";
         } elseif ($a2 < 0) {
@@ -21,57 +21,61 @@ class Enana
         }
     }
 
-    public function heridaLeve()
-    {
+    public function heridaLeve() {
         // Se le quitan 10 puntos de vida a la Enana
-        $this->puntosVida -= 10;
-
-        // Si la enana llega a 0 puntos de vida, cambia la situación a limbo
+      /*  $this->puntosVida -= 10;
+    
+        // Se verifica si la enana sigue viva después de recibir la herida
         if ($this->puntosVida <= 0) {
-            $this->situacion = "limbo";
-            $this->puntosVida = 0;
-        }
+            $this->situacion = "muerta";
+        }*/
     }
+    
 
-    public function heridaGrave()
-    {
-        // Se le quita toda la vida que posea hasta tener 0 puntos de vida y cambiarle la situación a limbo
-        $this->puntosVida = 0;
-        $this->situacion = "limbo";
+    public function heridaGrave() {
+        // Se le quita toda la vida que posea hasta tener 0 puntos de vida
+      /*  $this->puntosVida = 0;
+    
+        // Se cambia la situación a limbo
+        $this->situacion = "limbo";*/
     }
+    
 
-    public function pocima()
-    {
-        // Solo aplicar la pócima si la enana está viva
-        if ($this->situacion !== "muerta") {
+    public function pocima() {
+        // Si la enana está en limbo, la pocima no le afecta.
+       /* if ($this->situacion !== "limbo") {
             // Recupera 10 puntos de vida
             $this->puntosVida += 10;
-
-            // Si la enana estaba muerta y ahora tiene puntos de vida positivos, vuelve a estar viva
+    
+            // Verifica si la enana estaba muerta y si sus puntos de vida han pasado a ser mayores que 0
             if ($this->situacion === "muerta" && $this->puntosVida > 0) {
                 $this->situacion = "viva";
             }
-        }
+        }*/
     }
+    
 
-    public function pocimaExtra()
-    {
-        // Única manera de devolver a la vida del limbo. Además se otorgarán 50 puntos de vida.
-        if ($this->situacion === "limbo") {
+    public function pocimaExtra() {
+        // Solo afecta a enanas en el limbo
+       /* if ($this->situacion === "limbo") {
+            // Devuelve a la enana a la vida y otorga 50 puntos de vida
             $this->situacion = "viva";
-            $this->puntosVida = 50;
-        }
+            $this->puntosVida += 50;
+        }*/
     }
+    
 
-    // Getters & setters
+    //Getter's & setter's
     public function getNombre()
     {
         return $this->nombre;
     }
 
-    public function setNombre($nombre)
+    public function setNombre($nombre): self
     {
         $this->nombre = $nombre;
+
+        return $this;
     }
 
     public function getPuntosVida()
@@ -79,9 +83,11 @@ class Enana
         return $this->puntosVida;
     }
 
-    public function setPuntosVida($puntosVida)
+    public function setPuntosVida($puntosVida): self
     {
         $this->puntosVida = $puntosVida;
+
+        return $this;
     }
 
     public function getSituacion()
@@ -89,9 +95,11 @@ class Enana
         return $this->situacion;
     }
 
-    public function setSituacion($situacion)
+    public function setSituacion($situacion): self
     {
         $this->situacion = $situacion;
+
+        return $this;
     }
 }
 ?>
